@@ -28,7 +28,10 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
         <div className="flex flex-col items-center mb-6">
           <LogoIcon className="h-16 w-16 text-indigo-400" />
           <h1 className="text-3xl font-bold mt-4 text-white">Pharma POS</h1>
-          <p className="text-slate-400">Bienvenido de nuevo</p>
+          <p className="text-slate-400">Bienvenido de nuevo Jefe</p>
+          
+          <p className="text-slate-400">Por favor ingresa tus credenciales</p>
+
         </div>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
