@@ -1,10 +1,15 @@
-import type { Metadata } from "next";
+import type React from "react"
+import type { Metadata } from "next"
+import { Inter } from "next/font/google"
 import "./globals.css";
 
+const inter = Inter({ subsets: ["latin"] })
+
 export const metadata: Metadata = {
-  title: "Pharma POS",
+  title: "Zensa-Next.POS",
   description: "Punto de Venta para Farmacia con Next.js",
-};
+   generator: 'Zensa-Next.POS'
+}
 
 export default function RootLayout({
   children,
@@ -13,7 +18,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className="h-screen w-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-slate-900 text-slate-200 overflow-hidden">
+       <body className={`${inter.className} bg-[url('/background.png')] bg-cover bg-center min-h-screen`}>
+          
+        <div className="absolute top-0 left-0 w-full h-full bg-indigo-400 opacity-50 -z-10"></div>
+
         {children}
       </body>
     </html>

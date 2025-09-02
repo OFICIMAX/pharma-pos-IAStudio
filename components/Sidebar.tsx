@@ -29,38 +29,59 @@ const Sidebar: React.FC<SidebarProps> = ({ activeView, setActiveView, onLogout }
     const isActive = activeView === item.id;
     const Icon = item.icon;
     return (
-       <Tooltip text={item.label}>
-        <button
+       <Tooltip text={item.label}>{/* Tooltip personalizado -  botones menu sidebar*/}
+       {/* Todos Botónes de navegación del sidebar menos cerrar sesion */}
+       {/* Cambia el activeView al hacer clic  - active estilo de botones pulsados*/}
+        <button 
           onClick={() => setActiveView(item.id as ViewType)}
-          className={`flex items-center justify-center w-12 h-12 rounded-lg transition-all duration-200 ${
-            isActive ? 'bg-white/20 text-white' : 'text-slate-200 hover:bg-white/10'
-          }`}
-        >
+          className={`glass-container flex items-center justify-center w-14 h-14 shadow-xl rounded-lg transition-all duration-200 ${
+
+
+            isActive ? 'bg-purple-400 text-white ' 
+            : 'text-black/70 bg-white/80  hover:text-black/90 hover:bg-purple-300'}`}>
+
+
+
           <Icon className="h-6 w-6" />
         </button>
       </Tooltip>
     );
   }
 
+
+  {/* Barra lateral con navegación y botón de cerrar sesión */}
   return (
-    <aside className="relative flex flex-col items-center w-20 h-screen py-6 bg-[rgb(232,212,255)]/10 backdrop-blur-2xl border-r border-white/10">
-      <div className="p-2 mb-6">
+    
+    <aside className="relative flex flex-col items-center w-[80px] glass-sidebar shadow-xl py-4    rounded-lg" >
+
+
+      <div className="p-1 mb-5"  >
          {/* Asegúrate de tener un logo en public/logoapp.png */}
-         <Image src="/logoapp.png" alt="Logo de la App" width={40} height={40} />
+         <Image src="/logoapp.png" alt="Logo de la App" width={65} height={65} />
       </div>
       
-      <nav className="flex flex-col items-center space-y-3">
+      <nav className="flex flex-col items-center space-y-2 ">
         {navItems.map(item => <NavItem key={item.id} item={item} />)}
       </nav>
 
-      <div className="mt-auto">
+      <div className="mt-auto ">
+        
+        {/* Tooltip personalizado - botón cerrar sesión */}
          <Tooltip text="Cerrar Sesión">
+
+
+        {/* Contenedor del botón cerrar sesión */}
+          <div className="p-2  border-t border-white border-opacity-20">
+
+            {/* Solo Botón de cerrar sesión      */}
             <button
             onClick={onLogout}
-            className="flex items-center justify-center w-12 h-12 rounded-lg text-slate-300 hover:bg-red-500/50 hover:text-white transition-colors duration-200"
+            className="glass-container flex items-center justify-center w-14 h-14 rounded-lg text-black/70 bg-white/80 hover:bg-purple-300 hover:text-black/90  shadow-2xl transition-colors mt-3 duration-200"
             >
             <LogoutIcon className="h-6 w-6" />
+            
             </button>
+          </div>
         </Tooltip>
       </div>
     </aside>

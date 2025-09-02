@@ -18,21 +18,23 @@ const Dashboard: React.FC = () => {
     const bestSellingProducts = [...mockProducts].sort((a,b) => b.stock - a.stock).slice(0, 5);
 
     const StatCard: React.FC<{title: string, value: string, change: string}> = ({ title, value, change }) => (
-         <Card className="p-4">
-            <p className="text-sm text-slate-400">{title}</p>
-            <p className="text-3xl font-bold text-white">{value}</p>
-            <p className="text-sm text-green-400">{change}</p>
+      <div className="shadow-xl" >
+         <Card className="p-8 " >
+            <p className="text-xl pb-4 text-slate-800">{title}</p>
+            <p className="text-3xl font-bold text-black/70">{value}</p>
+            <p className="text-sm text-green-700">{change}</p>
         </Card>
+        </div>
     );
 
     const ProductList: React.FC<{title: string, products: typeof mockProducts}> = ({ title, products }) => (
-        <Card className="p-4 h-full">
-            <h3 className="font-semibold text-white mb-3">{title}</h3>
+        <Card className="p-4 h-full ">
+            <h3 className="font-semibold text-slate-800 mb-3">{title}</h3>
             <ul className="space-y-2 text-sm">
                 {products.map(p => (
-                    <li key={p.id} className="flex justify-between items-center text-slate-300">
+                    <li key={p.id} className="flex justify-between items-center text-slate-800">
                         <span>{p.name}</span>
-                        <span className={`font-bold ${p.stock < 100 ? 'text-red-400' : 'text-slate-400'}`}>{p.stock}</span>
+                        <span className={`font-bold ${p.stock < 100 ? 'bg-red-700 py-1 px-6 text-white/80 rounded-xl' : 'text-slate-800'}`}>{p.stock}</span>
                     </li>
                 ))}
             </ul>
@@ -41,7 +43,7 @@ const Dashboard: React.FC = () => {
 
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 ">
       {/* Marcadores / KPI Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <StatCard title="Ventas Hoy" value="$1,250" change="+12% vs ayer" />
@@ -54,12 +56,12 @@ const Dashboard: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Gráfico Financiero */}
         <Card className="lg:col-span-2 p-4 h-[400px]">
-          <h3 className="font-semibold text-white mb-4">Resumen de Ventas Semanal</h3>
+          <h3 className="font-semibold text-slate-800 mb-4">Resumen de Ventas Semanal</h3>
            <ResponsiveContainer width="100%" height="90%">
             <BarChart data={salesData} margin={{ top: 5, right: 20, left: -10, bottom: 5 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="rgba(255, 255, 255, 0.1)" />
-              <XAxis dataKey="name" stroke="#94a3b8" />
-              <YAxis stroke="#94a3b8" />
+              <CartesianGrid strokeDasharray="3 3" stroke="rgba(0, 0, 0, 0.1)" />
+              <XAxis dataKey="name" stroke="000000" />
+              <YAxis stroke="#000000" />
               <Tooltip
                 contentStyle={{
                   backgroundColor: 'rgba(30, 41, 59, 0.8)',
@@ -81,8 +83,8 @@ const Dashboard: React.FC = () => {
        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
          <ProductList title="Productos más vendidos (simulado)" products={bestSellingProducts}/>
          <Card className="p-4 h-full">
-            <h3 className="font-semibold text-white mb-3">Actividad Reciente</h3>
-            <ul className="space-y-3 text-sm text-slate-300">
+            <h3 className="font-semibold text-slate-800 mb-3">Actividad Reciente</h3>
+            <ul className="space-y-3 text-sm text-slate-800">
                 <li>Venta #1024 a Público en General por $250.00</li>
                 <li>Nuevo cliente registrado: Ana Torres</li>
                 <li>Entrada de efectivo: $500.00 (Inicio de turno)</li>

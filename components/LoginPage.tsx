@@ -23,19 +23,34 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
   };
 
   return (
-    <div className="h-screen w-screen flex items-center justify-center p-4">
-      <Card className="w-full max-w-sm p-8">
-        <div className="flex flex-col items-center mb-6">
-          <LogoIcon className="h-16 w-16 text-indigo-400" />
-          <h1 className="text-3xl font-bold mt-4 text-white">Pharma POS</h1>
-          <p className="text-slate-400">Bienvenido de nuevo Jefe</p>
+    
+    <div className="h-screen w-screen  flex items-center justify-center p-4">
+      {/*full screen with centered card */}
+
+
+      {/* Login Card */}
+      <Card className="w-full  max-w-md p-8">
+        <div className='shadow-lg' ></div>
+
+        {/* Logo and Title */}
+        <div className=" flex flex-col  items-center mb-6 mx-20">
           
-          <p className="text-slate-400">Por favor ingresa tus credenciales</p>
+          
+          {/*<LogoIcon className="h-50 w-50 text-indigo-400" />*/}
+          <div className=" flex justify-center mt-10 mb-4">
+                            
+              <img src="/logoapp.png" alt="Logo" className="w-60 h-60 rounded-full border-2 border-white shadow-lg" />
+          </div>
+
+          <h1 className="text-3xl font-bold mt-4 text-black/80">ZensaNext.POS</h1>
+          <p className="text-slate-600">Bienvenido de nuevo</p>
+          
+          <p className="text-slate-600">Por favor ingresa tus credenciales</p>
 
         </div>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-1">Usuario</label>
+            <label htmlFor="email" className="block text-sm font-medium text-slate-800 mb-1">Usuario</label>
             <Input
               id="email"
               type="email"
@@ -45,7 +60,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
             />
           </div>
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-slate-300 mb-1">Contraseña</label>
+            <label htmlFor="password" className="block text-sm font-medium text-slate-800 mb-1">Contraseña</label>
             <Input
               id="password"
               type="password"
@@ -55,8 +70,15 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
             />
           </div>
           <Button type="submit" className="w-full !py-3 !text-base">
-            Ingresar al Sistema 
+            Iniciar Sesión 
           </Button>
+
+          <div className="text-center">
+        <button type="button" className="text-sm text-indigo-600 hover:text-indigo-500">
+          Rellenar credenciales automáticamente
+        </button>
+      </div>
+
         </form>
       </Card>
     </div>

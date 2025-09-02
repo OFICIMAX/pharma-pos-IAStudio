@@ -167,7 +167,7 @@ const PointOfSale: React.FC<PointOfSaleProps> = ({ products, setProducts, custom
                         </div>
                     </div>
                     
-                    <div className="bg-slate-900/50 rounded-lg p-3 mb-4 flex justify-between items-center">
+                    <div className="bg-white/50 rounded-lg p-3 mb-4 flex justify-between items-center">
                         <div>
                             <p className="text-sm text-slate-400">Cliente</p>
                             <p className="font-semibold text-white">{selectedCustomer.name}</p>

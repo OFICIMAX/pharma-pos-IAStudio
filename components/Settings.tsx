@@ -12,13 +12,13 @@ const Settings: React.FC = () => {
 
   return (
     <div className="max-w-2xl mx-auto">
-      <h1 className="text-3xl font-bold text-white mb-6">Configuraciones Generales</h1>
+      <h1 className="text-3xl font-bold text-wblack/70 mb-6">Configuraciones Generales</h1>
       <Card className="p-6">
         <div className="space-y-6">
           <div>
-            <h2 className="text-xl font-semibold text-white mb-2">Impuestos</h2>
+            <h2 className="text-xl font-semibold text-black/90 mb-2">Impuestos</h2>
             <div className="flex items-center gap-4">
-              <label htmlFor="vat" className="text-slate-300">Valor del IVA General (%):</label>
+              <label htmlFor="vat" className="text-black/70">Valor del IVA General (%):</label>
               <Input
                 id="vat"
                 type="number"
@@ -29,22 +29,22 @@ const Settings: React.FC = () => {
             </div>
           </div>
           <div className="border-t border-slate-700 pt-6">
-            <h2 className="text-xl font-semibold text-white mb-2">Información de la Farmacia</h2>
+            <h2 className="text-xl font-semibold text-black/90 mb-2">Información de la Farmacia</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                    <label className="text-slate-300 block mb-1">Nombre de la Farmacia</label>
+                    <label className="text-black/80 block mb-1">Nombre de la Farmacia</label>
                     <Input defaultValue="Pharma POS Central" />
                 </div>
                  <div>
-                    <label className="text-slate-300 block mb-1">Dirección</label>
+                    <label className="text-black/80 block mb-1">Dirección</label>
                     <Input defaultValue="Av. Siempreviva 742" />
                 </div>
                  <div>
-                    <label className="text-slate-300 block mb-1">Teléfono</label>
+                    <label className="text-slate-700 block mb-1">Teléfono</label>
                     <Input defaultValue="+123 456 7890" />
                 </div>
                  <div>
-                    <label className="text-slate-300 block mb-1">RFC</label>
+                    <label className="text-slate-700 block mb-1">R.U.C.</label>
                     <Input defaultValue="XYZ123456ABC" />
                 </div>
             </div>

@@ -47,8 +47,8 @@ const HomePage: React.FC = () => {
         return <Settings />;
       default:
         return <div className="p-8 text-center">
-            <h1 className="text-3xl font-bold text-white">Página en construcción</h1>
-            <p className="mt-2 text-slate-300">La funcionalidad para '{activeView}' aún no ha sido implementada.</p>
+            <h1 className="text-3xl font-bold text-black/90">Página en construcción</h1>
+            <p className="mt-2 text-slate-800">La funcionalidad para '{activeView}' aún no ha sido implementada.</p>
           </div>;
     }
   };

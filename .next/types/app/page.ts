@@ -1,4 +1,4 @@
-// File: E:\CURSOS_PLATZY\APP-FARMA-GoogleIAStudio\pharma-pos\app\page.tsx
+// File: E:\CURSOS_PLATZY\APP-FARMA-GoogleIAStudio\pharma-pos-IAStudio\app\page.tsx
 import * as entry from '../../../app/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
