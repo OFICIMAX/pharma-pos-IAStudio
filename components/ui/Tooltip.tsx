@@ -1,4 +1,6 @@
-import React from 'react';
+// components/ui/Tooltip.tsx
+import React, { useState, useRef, useEffect } from 'react';
+import ReactDOM from 'react-dom';
 
 interface TooltipProps {
   text: string;
@@ -6,12 +8,42 @@ interface TooltipProps {
 }
 
 const Tooltip: React.FC<TooltipProps> = ({ text, children }) => {
+  const [hovered, setHovered] = useState(false);
+  const [coords, setCoords] = useState({ top: 0, left: 0 });
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (hovered && ref.current) {
+      const rect = ref.current.getBoundingClientRect();
+      setCoords({
+        top: rect.top + rect.height / 2,
+        left: rect.right + 8, // espacio de 8px a la derecha
+      });
+    }
+  }, [hovered]);
+
   return (
-    <div className="relative group flex items-center">
+    <div
+      ref={ref}
+      className="relative flex items-center"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
       {children}
-      <div className="absolute left-14 w-auto p-2 m-1 min-w-max rounded-sm  shadow-inner shadow-gray-500/80 text-white bg-purple-600 text-xs font-bold transition-all duration-100 scale-0 origin-left group-hover:scale-100 z-10"> 
-        {text}
-      </div>
+      {hovered &&
+        ReactDOM.createPortal(
+          <div
+            className=" glass-container fixed z-[9999] bg-fuchsia-500/60  text-white text-md font-semibold px-6 py-2 rounded-3xl shadow-xl  "
+            style={{
+              top: coords.top,
+              left: coords.left,
+              transform: 'translateY(-50%)',
+            }}
+          >
+            {text}
+          </div>,
+          document.body
+        )}
     </div>
   );
 };

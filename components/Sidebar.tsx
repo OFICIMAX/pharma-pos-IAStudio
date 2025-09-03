@@ -32,18 +32,29 @@ const Sidebar: React.FC<SidebarProps> = ({ activeView, setActiveView, onLogout }
        <Tooltip text={item.label}>{/* Tooltip personalizado -  botones menu sidebar*/}
        {/* Todos Botónes de navegación del sidebar menos cerrar sesion */}
        {/* Cambia el activeView al hacer clic  - active estilo de botones pulsados*/}
-        <button 
-          onClick={() => setActiveView(item.id as ViewType)}
-          className={`glass-container flex items-center justify-center w-14 h-14 shadow-xl rounded-lg transition-all duration-200 ${
+        <button
+  onClick={() => setActiveView(item.id as ViewType)}
+  className="w-14 h-14 flex items-center justify-center rounded-lg overflow-hidden bg-no-repeat bg-center bg-contain transition-all duration-200"
+  style={{
+    backgroundImage: isActive
+      ? 'url("/images/sidebar-active.png")'
+      : 'url("/images/sidebar-normal.png")',
+  }}
+  onMouseEnter={(e) => {
+    if (!isActive) {
+      e.currentTarget.style.backgroundImage = 'url("/images/sidebar-hover.png")';
+    }
+  }}
+  onMouseLeave={(e) => {
+    if (!isActive) {
+      e.currentTarget.style.backgroundImage = 'url("/images/sidebar-normal.png")';
+    }
+  }}
+>
+  {/* Si quieres mantener el ícono SVG encima, puedes dejarlo aquí */}
+  <Icon className="h-6 w-6 " />
+</button>
 
-
-            isActive ? 'bg-purple-400 text-white ' 
-            : 'text-black/70 bg-white/80  hover:text-black/90 hover:bg-purple-300'}`}>
-
-
-
-          <Icon className="h-6 w-6" />
-        </button>
       </Tooltip>
     );
   }
@@ -52,7 +63,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activeView, setActiveView, onLogout }
   {/* Barra lateral con navegación y botón de cerrar sesión */}
   return (
     
-    <aside className="relative flex flex-col items-center w-[80px] glass-sidebar shadow-xl py-4    rounded-lg" >
+    <aside className="relative flex flex-col items-center w-[80px] glass-sidebar shadow-2xl py-4    rounded-lg" >
 
 
       <div className="p-1 mb-5"  >
@@ -75,12 +86,22 @@ const Sidebar: React.FC<SidebarProps> = ({ activeView, setActiveView, onLogout }
 
             {/* Solo Botón de cerrar sesión      */}
             <button
-            onClick={onLogout}
-            className="glass-container flex items-center justify-center w-14 h-14 rounded-lg text-black/70 bg-white/80 hover:bg-purple-300 hover:text-black/90  shadow-2xl transition-colors mt-3 duration-200"
-            >
-            <LogoutIcon className="h-6 w-6" />
-            
-            </button>
+  onClick={onLogout}
+  className="w-14 h-14 rounded-lg flex items-center justify-center overflow-hidden bg-no-repeat bg-center bg-contain transition-all duration-200 mt-3"
+  style={{
+    backgroundImage: 'url("/images/sidebar-normal.png")',
+  }}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.backgroundImage = 'url("/images/sidebar-hover.png")';
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.backgroundImage = 'url("/images/sidebar-normal.png")';
+  }}
+>
+  {/* Ícono invisible para mantener estructura si es necesario */}
+  <LogoutIcon className="h-6 w-6 " />
+</button>
+
           </div>
         </Tooltip>
       </div>
