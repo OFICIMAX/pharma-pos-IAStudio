@@ -52,7 +52,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activeView, setActiveView, onLogout }
   }}
 >
   {/* Si quieres mantener el ícono SVG encima, puedes dejarlo aquí */}
-  <Icon className="h-6 w-6 " />
+  <Icon className="h-8 w-8 " />
 </button>
 
       </Tooltip>
@@ -66,9 +66,10 @@ const Sidebar: React.FC<SidebarProps> = ({ activeView, setActiveView, onLogout }
     <aside className="relative flex flex-col items-center w-[80px] glass-sidebar shadow-2xl py-4    rounded-lg" >
 
 
-      <div className="p-1 mb-5"  >
+      <div className="p-1 mb-5 flex flex-col items-center "  >
          {/* Asegúrate de tener un logo en public/logoapp.png */}
-         <Image src="/logoapp.png" alt="Logo de la App" width={65} height={65} />
+         <Image src="/logoapp.png" alt="Logo de la App" width={75} height={75}  />
+         
       </div>
       
       <nav className="flex flex-col items-center space-y-2 ">
@@ -87,7 +88,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activeView, setActiveView, onLogout }
             {/* Solo Botón de cerrar sesión      */}
             <button
   onClick={onLogout}
-  className="w-14 h-14 rounded-lg flex items-center justify-center overflow-hidden bg-no-repeat bg-center bg-contain transition-all duration-200 mt-3"
+  className="w-15 h-15 rounded-lg flex items-center justify-center overflow-hidden bg-no-repeat bg-center bg-contain transition-all duration-200 mt-3"
   style={{
     backgroundImage: 'url("/images/sidebar-normal.png")',
   }}
@@ -99,7 +100,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activeView, setActiveView, onLogout }
   }}
 >
   {/* Ícono invisible para mantener estructura si es necesario */}
-  <LogoutIcon className="h-6 w-6 " />
+  <LogoutIcon className="h-8 w-8 " />
 </button>
 
           </div>

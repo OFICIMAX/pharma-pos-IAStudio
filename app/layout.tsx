@@ -18,6 +18,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
+      <header>  
+        <link rel="icon" type="image/png" href="/favicon.png" />
+      </header>
        <body className={`${inter.className} bg-[url('/background.png')] bg-cover bg-center min-h-screen`}>
           
         <div className="absolute top-0 left-0 w-full h-full bg-indigo-400 opacity-50 -z-10"></div>

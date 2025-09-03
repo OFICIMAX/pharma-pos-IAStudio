@@ -39,7 +39,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
           {/*<LogoIcon className="h-50 w-50 text-indigo-400" />*/}
           <div className=" flex justify-center mt-10 mb-4">
                             
-              <img src="/logoapp.png" alt="Logo" className="w-60 h-60 rounded-full border-2 border-white shadow-lg" />
+              <img src="/logoapp.png" alt="Logo" className="w-[320px] h-[320px] rounded-full  " />
           </div>
 
           <h1 className="text-3xl font-bold mt-4 text-black/80">ZensaNext.POS</h1>
